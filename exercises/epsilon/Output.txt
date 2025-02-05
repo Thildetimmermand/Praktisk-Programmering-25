@@ -1,0 +1,26 @@
+my max int = 2147483647
+
+int.MaxValue = 2147483647
+
+my min int = -2147483648
+
+int.MinValue = -2147483648
+
+Double machine epsilon = 2,22044604925031E-16
+
+Comparison Value (double) = 2,22044604925031E-16
+
+Float machine epsilon = 1,192093E-07
+
+Comparison value (float) = 1,19209289550781E-07
+
+a==b ? False this result is due to ...
+
+a>1 ? False this result is due to ...
+
+b>1 ? True this result is due to ...
+
+d1=7,999999999999999e-001
+d2=8,000000000000000e-001
+d1==d2 ? => False
+d1==d2 ? => True
