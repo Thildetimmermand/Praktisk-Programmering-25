@@ -1,63 +1,68 @@
+using static System.Console;
+using static System.Math;
 
-public class main {
-	public static int Main() {
-        System.Console.WriteLine("ToString method for constructed vectors");
-		vec v = new vec(1,2,3);	
-		vec u = new vec(3,2,1);
-		vec neg_v = new vec(-1,-2,-3);
-		vec neg_u = new vec(-3,-2,-1);
+static class main
+{
+    // Extension method to print a double value with an optional label
+    public static void print(this double x, string s = "") { Write(s); WriteLine(x); }
 
-		//Testing if ToString method works
-		System.Console.WriteLine($"v = {v.ToString()}");
-		System.Console.WriteLine($"u = {v.ToString()}");
-		//Same but for negative vectors
-		System.Console.WriteLine($"-v = {neg_v.ToString()}");
-		System.Console.WriteLine($"-u = {neg_u.ToString()}");
-		
-		//Testing of scalar operator
-		System.Console.WriteLine("");
-		System.Console.WriteLine("Testing if scalar operator works as intended");
-		vec result = v*2;
-		System.Console.WriteLine($"v*2 = {result.ToString()}");
-		result = v*2.5;
-		System.Console.WriteLine($"v*2.5 = {result.ToString()}");
-		result = v*-3;
-		System.Console.WriteLine($"v*-3.0 = {result.ToString()}");
-		result = neg_v*2;
-		System.Console.WriteLine($"v*2.0 = {result.ToString()}");
-		result = neg_v*2.5;
-		System.Console.WriteLine($"v*2.5 = {result.ToString()}");
-		result = v*2.5;
-		System.Console.WriteLine($"v*-2.0 = {(v*2.5).ToString()}");
+    // Extension method to print a Vec object with an optional label
+    public static void print(this vec v, string s = "")
+    {
+        Write(s);
+        WriteLine($"{v.x} {v.y} {v.z}");
+    }
 
+    static int Main()
+    {
+        var rnd = new System.Random();
 
+        // Generate two random vectors
+        var u = new vec(rnd.NextDouble(), rnd.NextDouble(), rnd.NextDouble());
+        var v = new vec(rnd.NextDouble(), rnd.NextDouble(), rnd.NextDouble());
 
-		System.Console.WriteLine($"Does v*(-1) = -v: {(v*(-1)).approx(neg_v)}");
-		System.Console.WriteLine($"Does -v = v*(-1): {neg_v.approx(v*(-1))}");
+        // Print the generated vectors
+        u.print("u=");
+        v.print("v=");
 
-		//Testing of plus operator
-		System.Console.WriteLine("");
-		System.Console.WriteLine("Testing if + operator works as intended");
-		System.Console.WriteLine($"v+v = {(v + v).ToString()}");
-		System.Console.WriteLine($"v+u = {(v + u).ToString()}");
-		System.Console.WriteLine($"v+(-v) = {(v + neg_v).ToString()}");
+        WriteLine($"u={u}");
+        WriteLine($"v={v}");
+        WriteLine();
 
-		//Testing of minus operator
-		System.Console.WriteLine("");
-		System.Console.WriteLine("Testing if - operator works as intended");
-		System.Console.WriteLine($"v-v = {(v - v).ToString()}");
-		System.Console.WriteLine($"v-u = {(v - u).ToString()}");
-		System.Console.WriteLine($"v-(-v) = {(v - neg_v).ToString()}");
+        vec t;
 
-		//Testing of dot operator
-		System.Console.WriteLine("");
-		System.Console.WriteLine("Testing if dot operator works as intended");
-		System.Console.WriteLine($"v(dot)v = {(vec.dot(v,v)).ToString()}");
-		System.Console.WriteLine($"v(dot)u = {(vec.dot(v,u)).ToString()}");
-		System.Console.WriteLine($"v(dot)(-v) = {(vec.dot(v,neg_v)).ToString()}");
-		
-		//Testing of approx
-		System.Console.WriteLine($"v*(-1).approx(-v) = {(vec.approx(v*-1,neg_v)).ToString()}");
-		return 0;
-	}
+        // Test unary negation (-u)
+        t = new vec(-u.x, -u.y, -u.z);
+        (-u).print("-u =");
+        t.print("t  =");
+        if (vec.Approx(t, -u)) WriteLine("test 'unary -' passed\n");
+
+        // Test vector subtraction (u - v)
+        t = new vec(u.x - v.x, u.y - v.y, u.z - v.z);
+        (u - v).print("u-v =");
+        t.print("t   =");
+        if (vec.Approx(t, u - v)) WriteLine("test 'operator-' passed\n");
+
+        // Test vector addition (u + v)
+        t = new vec(u.x + v.x, u.y + v.y, u.z + v.z);
+        (u + v).print("u+v =");
+        t.print("t   =");
+        if (vec.Approx(t, u + v)) WriteLine("test 'operator+' passed\n");
+
+        // Test scalar multiplication (u * c)
+        double c = rnd.NextDouble();
+        t = new vec(u.x * c, u.y * c, u.z * c);
+        var tmp = u * c; // Workaround for bug in mcs
+        tmp.print("u*c =");
+        t.print("t   =");
+        if (vec.Approx(t, u * c)) WriteLine("test 'operator*' passed\n");
+
+        // Test dot product (u . v)
+        double d = u.x * v.x + u.y * v.y + u.z * v.z;
+        d.print("u%v=");
+        d.print("d  =");
+        if (vec.Approx(d, u.Dot(v))) WriteLine("test 'dot product' passed\n");
+
+        return 0;
+    }
 }
