@@ -1,0 +1,1 @@
+	set terminal svg background "white" ;	set out "Out.lngamma.gnuplot.svg" ;	set xlabel "x" ;	set ylabel "lngamma(x)" ;	set yrange [1:10];	set grid ;	set title "lngammafunction" ;	plot 		"Out3.txt" with lines lc "red" notitle 

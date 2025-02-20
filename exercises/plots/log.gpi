@@ -1,0 +1,1 @@
+	set terminal svg background "white" ;	set out "Out.erf.gnuplot.svg" ;	set xlabel "x" ;	set ylabel "Erf(x)" ;	set grid ;	set title "Errorfunction" ;	plot 		"Out.txt" with lines lc "red" notitle 
