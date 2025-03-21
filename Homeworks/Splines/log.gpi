@@ -1,0 +1,1 @@
+	set terminal svg background 'white' ;	set out 'LinearSpline.svg' ;	set xlabel 'x' ;	set ylabel 'rel' ;	set grid ;	set title 'Errorfunction' ;	plot 'interpolated.txt' using 1:2 with lines lt 7 lc rgb 'purple' notitle, 	     'interpolated.txt' using 1:3 with lines lt 7 lc rgb 'green' notitle, 	     'dataPoints.txt' using 1:2 with points lt 7 lc rgb 'red' notitle;
