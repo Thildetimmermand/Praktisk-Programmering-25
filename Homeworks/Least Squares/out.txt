@@ -1,0 +1,13 @@
+Fitted Parameters:
+ln(a) = 4,95866486264899
+a = 142,403540630783
+lambda = 0,170624049509978
+half-life = 4,06242368851649 days
+
+The Covariance matrix:
+
+   0,00125  -0,000197 
+ -0,000197   5,12e-05 
+
+The Calculated uncertainty in half-life: 0,170393518471826 days
+The modern uncertainty in half-life: 0.0014 days
