@@ -50,12 +50,14 @@ public class main{
             Console.WriteLine($"ln(a) = {c0}");
             Console.WriteLine($"a = {a}");
             Console.WriteLine($"lambda = {lambda}");
-            Console.WriteLine($"half-life = {Log(2)/lambda} days");
+            Console.WriteLine($"The half-life = {Log(2)/lambda} days");
+            Console.WriteLine($"The modern half-life = 3.6 days");
             Console.WriteLine();
             Console.WriteLine("The Covariance matrix:");
             Cov.print();
             Console.WriteLine();
-            Console.WriteLine($"The Calculated uncertainty in half-life: {dHalfLife} days");
+            Console.WriteLine($"The calculated uncertainty in half-life: {dHalfLife} days");
+            Console.WriteLine($"The calculated does not half-life does not fall within the uncertainty.");
             Console.WriteLine($"The modern uncertainty in half-life: 0.0014 days");
 
             //Datafiler til Plot

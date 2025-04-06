@@ -1,0 +1,1 @@
+	set terminal svg background 'white' ;	set out 'errorfunc.svg';	set xlabel 'x' ;	set ylabel 'Errorfunction(x)' ;	set key top right ;	set grid ;	set yrange [-1:1] ;	set xrange [-3:3] ;	set title 'Errorfunction' ;	plot 'Errorfunc.txt' using 1:2 with points pointtype 7 pointsize 0.5 title 'erf(x)';
