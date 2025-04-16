@@ -1,0 +1,1 @@
+	set terminal svg background 'white' ;	set out 'oscillator.svg' ;	set xlabel 'x' ;	set ylabel 'rel' ;	set grid ;	set title 'Pendulum with friction' ;	plot 'osc.txt' with lines smooth csplines title 'theta(t)', 'oscwfriction.txt' with lines smooth csplines title 'omega(t)';
