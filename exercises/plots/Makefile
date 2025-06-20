@@ -36,7 +36,7 @@ Out.lngamma.gnuplot.svg : Out3.txt Makefile
 		set out "$@" ;\
 		set xlabel "x" ;\
 		set ylabel "lngamma(x)" ;\
-		set yrange [1:10];\
+		set yrange [-2:10];\
 		set grid ;\
 		set title "lngammafunction" ;\
 		plot \
