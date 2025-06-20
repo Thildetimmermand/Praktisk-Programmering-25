@@ -1,0 +1,31 @@
+ToString method for constructed vectors
+v = 1, 2, 3
+u = 1, 2, 3
+-v = -1, -2, -3
+-u = -3, -2, -1
+
+Testing if scalar operator works as intended
+v*2 = 2, 4, 6
+v*2.5 = 2,5, 5, 7,5
+v*-3.0 = -3, -6, -9
+v*2.0 = -2, -4, -6
+v*2.5 = -2,5, -5, -7,5
+v*-2.0 = 2,5, 5, 7,5
+Does v*(-1) = -v: True
+Does -v = v*(-1): True
+
+Testing if + operator works as intended
+v+v = 2, 4, 6
+v+u = 4, 4, 4
+v+(-v) = 0, 0, 0
+
+Testing if - operator works as intended
+v-v = 0, 0, 0
+v-u = -2, 0, 2
+v-(-v) = 2, 4, 6
+
+Testing if dot operator works as intended
+v(dot)v = 14
+v(dot)u = 10
+v(dot)(-v) = -14
+v*(-1).approx(-v) = True

@@ -1,12 +1,11 @@
-Out.txt : vec.exe
-	mono $< > $@
+Out.txt : main.exe
+	mono main.exe > Out.txt
 
-vec.exe : vec.cs vec.dll
-	mcs -target:exe -reference:vec.dll -out:vec.exe vec.cs
+main.exe: main.cs vec.dll
+	mcs -target:exe -out:main.exe -reference:vec.dll main.cs
 
-vec.dll : veclib.cs
-	mcs -target:library -out:vec.dll veclib.cs
+vec.dll : vec.cs
+	mcs -target:library -out:vec.dll vec.cs
 
-.PHONEY: clean
 clean:
-	$(RM) vec.dll vec.exe Out.txt
+	rm -f Out.txt main.exe vec.dll
