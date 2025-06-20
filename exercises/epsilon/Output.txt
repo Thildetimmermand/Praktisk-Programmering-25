@@ -14,11 +14,11 @@ Float machine epsilon = 1,192093E-07
 
 Comparison value (float) = 1,19209289550781E-07
 
-a==b ? False this result is due to ...
+a==b ? False this result is due to floating point arithmetic, a=1+tiny=1, and when tiny is added again it is rounded down again, b=1+epsiloilonn, since tiny+tiny is representable as epsilon
 
-a>1 ? False this result is due to ...
+a>1 ? False this result is due to arithmetic again, a is equal to exactly 1 here
 
-b>1 ? True this result is due to ...
+b>1 ? True this result is due to floating point arithmetic, here b=1+epsilon
 
 d1=7,999999999999999e-001
 d2=8,000000000000000e-001

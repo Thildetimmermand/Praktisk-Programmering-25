@@ -33,9 +33,9 @@ class main{
 		double tiny = epsilon/2;
 		double a = 1 + tiny + tiny;
 		double b = tiny + tiny + 1;
-		WriteLine($"a==b ? {a==b} this result is due to ...\n");
-		WriteLine($"a>1 ? {a>1} this result is due to ...\n");
-		WriteLine($"b>1 ? {b>1} this result is due to ...\n");
+		WriteLine($"a==b ? {a==b} this result is due to floating point arithmetic, a=1+tiny=1, and when tiny is added again it is rounded down again, b=1+epsiloilonn, since tiny+tiny is representable as epsilon\n");
+		WriteLine($"a>1 ? {a>1} this result is due to arithmetic again, a is equal to exactly 1 here\n");
+		WriteLine($"b>1 ? {b>1} this result is due to floating point arithmetic, here b=1+epsilon\n");
 
 		//comparing doubles (intro)
 		double d1 = 0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1;
