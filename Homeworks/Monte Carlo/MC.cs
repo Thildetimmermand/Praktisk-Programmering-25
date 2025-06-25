@@ -3,7 +3,7 @@ using static System.Math;
 
 public static class MC{
 
-    static (double,double) plainmc(Func<vector,double> f,vector a,vector b, int N){
+    public static (double,double) plainmc(Func<vector,double> f,vector a,vector b, int N){
         int dim = a.size;
         double V=1;
         
