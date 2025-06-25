@@ -1,0 +1,15 @@
+Rosenbrock gradient root:
+Start: [0.5. 0.5]
+Result: [0.999935969898474. 0.999853383103522]
+‖f(x)‖ = 0.00818587520840715
+
+Himmelblau gradient root:
+Start: [5. 5]
+Result: [2.99993781823364. 2.00028373161718]
+‖f(x)‖ = 0.00847337412079945
+
+Hydrogen atom ground state:
+Computed E₀ = -0.499974870681763
+Exact E₀ = -0.5
+Error = 2.5129318237338E-05
+
